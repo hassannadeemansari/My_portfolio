@@ -256,7 +256,7 @@ export default function Home(){
 
           {/* skills */}
 
-          <div className="2xl:w-[1600px] h-[145vh] sm:h-[90vh] bg-primary flex justify-center items-center">
+          <div className="2xl:w-[1600px] h-[185vh] sm:h-[90vh] bg-primary flex justify-center items-center">
                <div className="w-[73%] h-[70%] ">
                  <div className="flex justify-center"><h1 className="text-4xl font-extrabold text-blue-900">Skills And Experience</h1></div>
 

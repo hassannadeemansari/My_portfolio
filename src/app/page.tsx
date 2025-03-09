@@ -16,10 +16,37 @@ import Image from "next/image";
 import { useState } from 'react';
 import Link from "next/link";
 import { FiMenu } from 'react-icons/fi';
+import { motion } from "framer-motion";
 
 
 
 export default function Home(){
+
+
+  const navVariants = {
+    hidden: { opacity: 0, x: "100%", filter: "blur(20px)" },
+    visible: { 
+      opacity: 1, 
+      x: 0, 
+      filter: "blur(0px)", 
+      transition: { duration: 0.8, ease: "easeOut", type: "spring", stiffness: 100 } 
+    },
+    exit: { opacity: 0, x: "100%", transition: { duration: 0.5, ease: "easeIn" } },
+  };
+  
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { 
+        duration: 0.5, 
+        ease: "easeOut", 
+        delay: 0.2 
+      } 
+    },
+  }
+
 
 
   const skills = [
@@ -70,12 +97,30 @@ export default function Home(){
 
       {/* Mobile  */}
       {isOpen && (
-        <div className="absolute top-20 right-0 w-full bg-primary text-white flex flex-col items-center py-4 shadow-lg md:hidden">
-          <a href="#about" className="py-2">About</a>
-          <a href="#skills" className="py-2">Skills</a>
-          <a href="#work" className="py-2">Work</a>
-          <a href="#contact" className="py-2">Contact</a>
-        </div>
+        <motion.div
+        variants={navVariants}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        className="absolute top-20 right-0 w-full bg-primary text-white flex flex-col items-center py-6 shadow-2xl rounded-lg md:hidden"
+      >
+        {[
+          { name: "About", path: "#about" },
+          { name: "Skills", path: "#skills" },
+          { name: "Work", path: "#work" },
+          { name: "Contact", path: "#contact" }
+        ].map((item, index) => (
+          <motion.a
+            key={index}
+            href={item.path}
+            variants={itemVariants}
+            className="py-3 text-lg font-semibold tracking-widest text-shadow-lg uppercase transform transition-all duration-300 hover:scale-110 hover:text-blue-800"
+          >
+            {item.name}
+          </motion.a>
+        ))}
+      </motion.div>
+
       )}
     </div> 
 
@@ -88,8 +133,10 @@ export default function Home(){
                           <MdWavingHand />
                          <div> Hello, Im </div>
                        </div>
-                        <div className="2xl:text-7xl sm:text-7xl xl:text-7xl lg:text-6xl text-5xl text-white font-extrabold italic">Hassan Nadeem</div>
-                        <div className="text-4xl text-blue-800 font-sans">Web Developer</div>
+                       <div className="text-5xl sm:text-6xl lg:text-6xl italic bg-gradient-to-r from-blue-600 via-gray-600 to-pink-600 bg-clip-text text-transparent font-extrabold tracking-tight">
+  Hassan Nadeem
+</div>
+                        <div className="text-4xl text-white font-sans">Web Developer</div>
      
                        {/* <div><button className="w-[45%] h-20 text-white text-2xl font-sans flex justify-center items-center gap-2 bg-gray-500  ">Github Account<SiGithub /></button></div> */}
      
@@ -135,7 +182,15 @@ export default function Home(){
       {/* Image  */}
 
       <div className="flex items-center justify-center">
-        <div className="w-48 sm:w-56 md:w-64 xl:w-80 h-48 sm:h-56 md:h-64 xl:h-80 rounded-full bg-gray-800 shadow-xl shadow-gray-600"></div>
+        <div className="w-60 sm:w-56 md:w-64 xl:w-80 h-60 sm:h-56 md:h-64 xl:h-80 rounded-full shadow-lg shadow-gray-600 overflow-hidden brightness-50">
+            <Image 
+              src="/pfp.jpg"
+              alt="pfp pic"
+              className="bg"
+              width={500}
+              height={500}
+             />
+        </div>
       </div>
 
       {/* Text  */}
@@ -201,7 +256,7 @@ export default function Home(){
 
           {/* skills */}
 
-          <div className="2xl:w-[1600px] h-[120vh] sm:h-[90vh] bg-primary flex justify-center items-center">
+          <div className="2xl:w-[1600px] h-[145vh] sm:h-[90vh] bg-primary flex justify-center items-center">
                <div className="w-[73%] h-[70%] ">
                  <div className="flex justify-center"><h1 className="text-4xl font-extrabold text-blue-900">Skills And Experience</h1></div>
 
@@ -216,7 +271,7 @@ export default function Home(){
 
       <div className="grid md:grid-cols-2 gap-10">
         {/* About Me Section */}
-        <div>
+        <div className="font-extralight ">
           <h3 className="text-xl md:text-2xl font-semibold mb-4">About Me</h3>
           <p className="mb-6 text-gray-300">
             I started my journey in 2024. Im a fresher specializing in frontend
@@ -235,7 +290,7 @@ export default function Home(){
   {skills.map((skill, index) => (
     <div
       key={index}
-      className="group relative flex items-center justify-center p-4 border-[1px] border-gray-600 text-white rounded-lg shadow-lg cursor-pointer overflow-hidden"
+      className="group sm:w-[30%] w-full relative flex items-center justify-center p-4 border-[1px] border-gray-600 text-white rounded-lg shadow-lg cursor-pointer overflow-hidden"
     >
       {/* White line animation */}
       <span className="absolute inset-0 bg-white opacity-60 transform -translate-x-full transition-transform duration-500 group-hover:translate-x-0"></span>
@@ -295,7 +350,7 @@ export default function Home(){
       {/* Contact */}
 
 
-      <div id="contact" className="2xl:w-[1600px] mx-auto sm:h-[125vh] h-[115vh] bg-primary flex items-center justify-center">
+      <div id="contact" className="2xl:w-[1600px] mx-auto sm:h-[125vh] h-[105vh] bg-primary flex items-center justify-center">
               <div className="w-[57%] h-[70%] flex flex-col gap-20">
                  <div className="flex justify-center"><h1 className="text-blue-700 text-4xl font-extrabold">Contact Me</h1></div> 
 
@@ -323,9 +378,9 @@ export default function Home(){
 
 
                    <div className="flex gap-3 justify-center"> 
-                      <div className="w-16 h-16 flex items-center justify-center rounded-full border-[2px] border-blue-800"><FaFacebookF   className=" text-gray-300 w-8 h-8 "/></div>
-                      <div className="w-16 h-16 flex items-center justify-center rounded-full border-[2px] border-blue-800"><FaInstagram   className=" text-gray-300 w-8 h-8 "/></div>
-                      <div className="w-16 h-16 flex items-center justify-center rounded-full border-[2px] border-blue-800"><FaLinkedinIn   className=" text-gray-300 w-8 h-8 "/></div>
+                      <Link href="#" className="w-16 h-16 flex items-center justify-center rounded-full border-[2px] border-blue-800"><FaFacebookF className=" text-gray-300 w-8 h-8 "/></Link>
+                      <Link href="https://www.instagram.com/shutuphassan_/" className="w-16 h-16 flex items-center justify-center rounded-full border-[2px] border-blue-800"><FaInstagram  className=" text-gray-300 w-8 h-8 "/></Link>
+                      <Link href="#" className="w-16 h-16 flex items-center justify-center rounded-full border-[2px] border-blue-800"><FaLinkedinIn   className=" text-gray-300 w-8 h-8 "/></Link>
                    </div>
                    
 

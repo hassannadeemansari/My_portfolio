@@ -256,7 +256,7 @@ export default function Home(){
 
           {/* skills */}
 
-          <div className="2xl:w-[1600px] h-[185vh] sm:h-[90vh] bg-primary flex justify-center items-center">
+          <div className="2xl:w-[1600px] h-[205vh] sm:h-[90vh] bg-primary flex justify-center items-center">
                <div className="w-[73%] h-[70%] ">
                  <div className="flex justify-center"><h1 className="text-4xl font-extrabold text-blue-900">Skills And Experience</h1></div>
 
@@ -316,7 +316,7 @@ export default function Home(){
         {/* work */}
 
 
-      <div id="work" className="2xl:w-[1600px] sm:h-[190vh] h-[165vh] relative  flex justify-center items-center">
+      <div id="work" className="2xl:w-[1600px] sm:h-[190vh] h-[220vh] relative  flex justify-center items-center">
 
           {/* background image */}
           <div className="absolute inset-0 bg-[url('/background3.png')] bg-cover bg-center opacity-40"></div>

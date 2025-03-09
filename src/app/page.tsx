@@ -350,7 +350,7 @@ export default function Home(){
       {/* Contact */}
 
 
-      <div id="contact" className="2xl:w-[1600px] mx-auto sm:h-[125vh] h-[105vh] bg-primary flex items-center justify-center">
+      <div id="contact" className="2xl:w-[1600px] mx-auto sm:h-[125vh] h-[125vh] bg-primary flex items-center justify-center">
               <div className="w-[57%] h-[70%] flex flex-col gap-20">
                  <div className="flex justify-center"><h1 className="text-blue-700 text-4xl font-extrabold">Contact Me</h1></div> 
 

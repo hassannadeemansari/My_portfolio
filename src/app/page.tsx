@@ -126,7 +126,7 @@ export default function Home(){
 
            {/* hero section */}
 
-           <div className="2xl:w-[1600px] h-auto relative z-10 flex px-[90px] sm:px-[100px] lg:px-[100px] xl:px-[200px] grid lg:grid-cols-2 grid-cols-1 gap-9 items-center">
+           <div className="2xl:w-[1600px] sm:h-[100vh] relative z-10 flex px-[90px] sm:px-[100px] lg:px-[100px] xl:px-[200px] grid lg:grid-cols-2 grid-cols-1 gap-9 items-center">
                 <div className=" sm:w-[600px] sm:h-[55%] h-96 flex flex-col gap-6 mt-24 lg:mt-0 sm:mt-40">
 
                        <div className="flex text-3xl font-sans font-bold gap-3 text-white tracking-wider">
@@ -350,7 +350,7 @@ export default function Home(){
       {/* Contact */}
 
 
-      <div id="contact" className="2xl:w-[1600px] mx-auto sm:h-[125vh] h-[132vh] bg-primary flex items-center justify-center">
+      <div id="contact" className="2xl:w-[1600px] mx-auto sm:h-[135vh] h-[132vh] bg-primary flex items-center justify-center">
               <div className="w-[57%] h-[70%] flex flex-col gap-20">
                  <div className="flex justify-center"><h1 className="text-blue-700 text-4xl font-extrabold">Contact Me</h1></div> 
 
